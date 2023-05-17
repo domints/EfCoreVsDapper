@@ -6,7 +6,6 @@ internal static class Program
 {
     private static async Task Main()
     {
-        BenchmarkRunner.Run<BenchmarksWithIndex>();
-        BenchmarkRunner.Run<BenchmarksNoIndex>();
+        BenchmarkRunner.Run(new[] { /*typeof(BenchmarksNoIndex), */typeof(BenchmarksWithIndex) });
     }
 }

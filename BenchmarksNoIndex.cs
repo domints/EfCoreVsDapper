@@ -36,8 +36,11 @@ namespace EfCoreVsDapper
         [GlobalCleanup]
         public void Cleanup()
         {
-            if (File.Exists(DatabaseFile))
-                File.Delete(DatabaseFile);
+            _movieConnection?.Close();
+            _movieConnection?.Dispose();
+            _movieContext?.Dispose();
+            //if (File.Exists(DatabaseFile))
+            //    File.Delete(DatabaseFile);
         }
 
         [Benchmark]
